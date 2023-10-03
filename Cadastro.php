@@ -5,19 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width-device-width, initial-scale=1">
 	<title>Formulário de Cadastro</title>
-
-	<script src="js/novoJquery.js"></script>
 	
 	<script src="js/jquery.js"></script>
-	<script src="js/jquery.mask.js"></script>
-
-	
-
 	<link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css">
-
-	
-
 	<link rel="stylesheet" href="estrutura.css">
+	
 	<style type="text/css">
 
 		input{
@@ -25,6 +17,7 @@
 		}
 
 		#btnEntrar{
+			font-weight: bold;
 			background: rgba(1, 207, 207, 0.788);
 			color: white;
 			width: 200px;
@@ -32,9 +25,11 @@
 			border-style: double;
 			border-radius: 50px;
 			font-size: 15px;
+			border: 3px solid white;
 		}
 
 		#btnEntrar:hover{
+			font-weight: bold;
 			background-image: url("icones/envio.jpg");
 			background:   rgba(158, 48, 94, 0.904);
 			cursor: pointer;
@@ -44,9 +39,11 @@
 			border-style: double;
 			border-radius: 50px;
 			font-size: 15px;
+			border: 3px solid white;
 		}
 
 		#btnLogar{
+			font-weight: bold;
 			background:  rgba(1, 207, 207, 0.788);
 			color: white;
 			width: 300px;
@@ -55,9 +52,11 @@
 			border-radius: 50px;
 			font-size: 15px;
 			margin: 15px;
+			border: 3px solid white;
 		}
 
 		#btnLogar:hover{
+			font-weight: bold;
 			background-image: url("icones/envio.jpg");
 			background:  rgba(158, 48, 94, 0.904);
 			cursor: pointer;
@@ -67,6 +66,7 @@
 			border-style: double;
 			border-radius: 50px;
 			font-size: 15px;
+			border: 3px solid white;
 		}
 		
 		#att2{
@@ -205,12 +205,12 @@
 
 
 ?>
-			<legend>Formulário de Cadastro</legend>
-		<label>Nome:</label> <br><br>
-		<input  id="campoNome" style="border-radius: 10px; width: 200px" type="text" name="nome" placeholder="Digite um nome"><br><br>
+			<legend><strong style="font-size: 40px">Cadastro</strong></legend>
+		<label> <strong>Nome:</strong></label> <br><br>
+		<input  id="campoNome" style="border-radius: 10px; width: 200px;border: 3px solid rgba(1, 207, 207, 0.788);" type="text" name="nome" placeholder="Digite um nome"><br><br>
 
-		<label>Código:</label><br><br>
-		<input  id="campoCodigo" style="border-radius: 10px; width: 200px" type="password" name="codigo" placeholder="Digite um código"><br><br>
+		<label><strong>Código:</strong></label><br><br>
+		<input  id="campoCodigo" style="border-radius: 10px; width: 200px;border: 3px solid rgba(1, 207, 207, 0.788);" type="password" name="codigo" placeholder="Digite um código"><br><br>
 
 		<input id="btnEntrar" type="submit" name="cadastrar" value="Cadastrar">
 

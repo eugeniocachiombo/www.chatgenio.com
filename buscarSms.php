@@ -28,6 +28,14 @@ session_start();
 	
 
 <?php
+
+if(!isset($_SESSION["nome"])){
+	?>
+<script>
+	window.location = "index.php";
+</script>
+	<?php
+}
     include 'Conexao.php';
 	require_once 'Mensagem.php';
 	require_once 'Paginar.php';
@@ -127,6 +135,7 @@ limit $inicio, $limite
 			text-align: center;
 			width: fit-content;
 			padding: 3px;
+			font-weight: bold;
 			border-radius: 50px;
 			border: 3px solid white;
 		">	
@@ -145,6 +154,7 @@ limit $inicio, $limite
 			background: rgba(158, 48, 94, 0.904);
 			text-align: center;
 			padding: 3px;
+			font-weight: bold;
 			width: fit-content;
 			border-radius: 50px;
 			border: 3px solid white;

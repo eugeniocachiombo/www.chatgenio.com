@@ -25,16 +25,19 @@ session_start();
 		}
 
 		#btnEntrar{
+			font-weight: bold;
 			background: rgba(1, 207, 207, 0.788);
 			color: white;
 			width: 94px;
 			border-color: white;
 			border-style: double;
 			border-radius: 50px;
+			border: 3px solid white;
 			font-size: 15px;
 		}
 
 		#btnEntrar:hover{
+			font-weight: bold;
 			background-image: url("icones/envio.jpg");
 			background:   rgba(158, 48, 94, 0.904);
 			cursor: pointer;
@@ -43,16 +46,19 @@ session_start();
 			border-color: white;
 			border-style: double;
 			border-radius: 50px;
+			border: 3px solid white;
 			font-size: 15px;
 		}
 
 		#btnCdastrar{
+			font-weight: bold;
 			background:  rgba(1, 207, 207, 0.788);
 			color: white;
 			width: 200px;
 			border-color: white;
 			border-style: double;
 			border-radius: 50px;
+			border: 3px solid white;
 			font-size: 15px;
 			margin: 15px;
 		}
@@ -65,6 +71,7 @@ session_start();
 			width: 200px;
 			border-color: white;
 			border-style: double;
+			border: 3px solid white;
 			border-radius: 50px;
 			font-size: 15px;
 		}
@@ -101,14 +108,22 @@ session_start();
 		<fieldset style="text-align: center">
 
 		<?php
+
+
+
 	include 'Conexao.php';
 
 	$con = getConexao();
 
 	$validar = true;
 
+	
+
+
 	if (isset($_POST["entrar"])) {
-			
+
+		
+
 		$nome = mb_convert_case($_POST["nome"], MB_CASE_LOWER);
 		$codigo = $_POST["codigo"];
 		
@@ -138,7 +153,11 @@ session_start();
 	 </p>
 		
 	<?php
-			}else{
+			}else{ 
+				
+			setcookie("utilizador", $_SESSION["id"], time()+3600);
+				
+		
 			?>
 			
 			<script type="text/javascript">
@@ -169,12 +188,16 @@ session_start();
 
 ?>
 
-			<legend>Login</legend>
-		<label>Nome:</label> <br>
-		<input  id="campoNome" style="border-radius: 10px; width: 200px" type="text" name="nome" placeholder="Digite o seu nome"><br><br>
+			<legend><strong style="font-size: 40px">Login</strong></legend>
+		<label><strong>Nome:</strong></label> <br>
+		<input  id="campoNome" style="border-radius: 10px;padding-right: 35px; width: 250px;border: 3px solid rgba(1, 207, 207, 0.788);" type="text" name="nome" placeholder="Digite o seu nome">
+		<img class="campoTextoIcone" src="icones/user1.png" width="28px"><br><br>
 
-		<label>Código:</label><br>
-		<input  id="campoCodigo" style="border-radius: 10px; width: 200px" type="password" name="codigo" placeholder="Digite o seu código"><br><br>
+		<label><strong>Código:</strong></label><br>
+		<input class="senha" id="campoCodigo" style="border-radius: 10px;padding-right: 35px; width: 250px;border: 3px solid rgba(1, 207, 207, 0.788);" type="password" name="codigo" placeholder="Digite o seu código">
+		<img onclick="verSenhar()" class="aberto" src="icones/olhoAberto.png" width="28px">
+		<img onclick="verSenhar()" class="fechado" src="icones/olhoFechado.png" width="28px">
+		<br><br>
 
 		<input id="btnEntrar"  type="submit" name="entrar" value="Logar"> <br>
 
@@ -224,17 +247,73 @@ session_start();
 	<!--Rodapé -->
 
 		<script>
+
 		var nome = "<?php echo $_POST["nome"] ?>";
 		var codigo = "<?php echo $_POST["codigo"]?>";
 		var validar = "<?php echo $validar?>";
+	
 
 		if(validar == false){
 			$("#campoNome").val(nome);
 		$("#campoCodigo").val(codigo);
 		}
+
 		
 	</script>
 	
 
+	<!--Ver Senha -->
+		<script>
+		
+		var fechado = document.querySelector('.aberto');
+		var aberto = document.querySelector('.fechado');
+		var senha = document.querySelector('.senha');
+		aberto.style = "display: none;"
+
+	function verSenhar(){
+			if (senha.type == "password") {
+
+				aberto.style = "display: inline;"
+				fechado.style = "display: none;"
+				senha.type = "text"
+			} else if (senha.type == "text"){
+
+				aberto.style = "display: none;"
+				fechado.style = "display: inline;"
+
+				senha.type = "password"
+			}
+		}
+	
+	</script>
+	<!--Ver Senha -->
 </body>
 </html>
+
+<?php
+		
+		
+		if(isset($_COOKIE["utilizador"]) && $_COOKIE["utilizador"] != null ){
+
+			
+
+		$sql = "select * from usuario where id = ?";
+
+		$stmt = $con->prepare($sql);
+		$stmt->bindValue(1, ($_COOKIE["utilizador"]));
+		$stmt->execute();
+		$result = $stmt->fetch();
+
+			$_SESSION["id"] = $result["id"];
+			$_SESSION["nome"] = $result["nome"];
+			$_SESSION["codigo"] = $result["codigo"];
+		?>
+		<script type="text/javascript">
+		window.location = "inicio.php";
+		</script>
+		<?php
+		}
+
+	
+
+?>

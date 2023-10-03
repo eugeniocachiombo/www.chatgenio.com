@@ -1,67 +1,65 @@
 <?php
-	
-	require_once 'Usuario.php';
-	class Mensagem{
 
-		private int $codSms;
-		private Usuario $emissor;
-		private Usuario $receptor;
-		private String $texto;
+require_once 'Usuario.php';
 
-		public function getCodSms(){
-			return $this->codSms;
-		}
+class Mensagem {
 
-		public function setCodSms(int $codSms){
-			$this->codSms = $codSms;
-		}
+    private $codSms;
+    private $emissor;
+    private $receptor;
+    private $texto;
 
-		public function getEmissor(){
-			return $this->emissor;
-		}
+    public function __construct( $emissor, $receptor,  $texto ) {
+        $this->emissor = $emissor;
+        $this->receptor = $receptor;
+        $this->texto = $texto;
+    }
 
-		public function setEmissor(Usuario $emissor){
-			$this->emissor = $emissor;
-		}
+    public function getCodSms() {
+        return $this->codSms;
+    }
 
-		public function getReceptor(){
-			return $this->receptor;
-		}
+    public function setCodSms( $codSms ) {
+        $this->codSms = $codSms;
+    }
 
-		public function setReceptor(Usuario $receptor){
-			$this->receptor = $receptor;
-		}
+    public function getEmissor() {
+        return $this->emissor;
+    }
 
-		public function getTexto(){
-			return $this->texto;
-		}
+    public function setEmissor( $emissor ) {
+        $this->emissor = $emissor;
+    }
 
-		public function setTexto(String $texto){
-			$this->texto = $texto;
-		}
+    public function getReceptor() {
+        return $this->receptor;
+    }
 
-		public function __construct(
-		 Usuario $emissor, Usuario $receptor, String $texto 
-		){
+    public function setReceptor( $receptor ) {
+        $this->receptor = $receptor;
+    }
 
-		
-			$this->emissor = $emissor;
-			$this->receptor = $receptor;
-			$this->texto = $texto;
-		}
+    public function getTexto() {
+        return $this->texto;
+    }
 
-		public function enviarSms(){
-		/*	echo "Mensagem Enviada:";
-			echo "<br> Emissor: ".$this->getEmissor()->getNome();
-			echo "<br> Receptor: ".$this->getReceptor()->getNome();
-			echo "<br> Texto: ".$this->getTexto();*/
-		}
-		
-		public function receberSms(){
-			echo "Mensagem Recebida:";
-			echo "<br> Emissor: ".$this->getEmissor();
-			echo "<br> Texto: ".$this->getTexto();
-		}
-	}
+    public function setTexto( $texto ) {
+        $this->texto = $texto;
+    }
+
+    public function enviarSms() {
+        /*	echo 'Mensagem Enviada:';
+        echo '<br> Emissor: '.$this->getEmissor()->getNome();
+        echo '<br> Receptor: '.$this->getReceptor()->getNome();
+        echo '<br> Texto: '.$this->getTexto();
+        */
+    }
+
+    public function receberSms() {
+        echo 'Mensagem Recebida:';
+        echo '<br> Emissor: '.$this->getEmissor();
+        echo '<br> Texto: '.$this->getTexto();
+    }
+}
 
 ?>

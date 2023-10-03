@@ -48,6 +48,7 @@ session_start();
 		}
 
 		#btnDel{
+			font-weight: bold;
 			color: white;
 			background: rgba(158, 48, 94, 0.904);
 			margin: 5px;
@@ -57,9 +58,8 @@ session_start();
 			width: contain;
 			height: contain;
 			border-color: white;
-			border-style: double;
 			border-radius: 50px;
-			
+			border: 3px solid white;
 		}
 
 		#btnDel:hover{
@@ -74,6 +74,7 @@ session_start();
 			border-color: white;
 			border-style: double;
 			border-radius: 50px;
+			border: 3px solid white;
 		}
 
 		#smsExcluida{
@@ -83,6 +84,7 @@ session_start();
 		}
 
 		#btnEnviar{
+			
 			background: rgba(1, 207, 207, 0.788);
 			color: white;
 			width: 300px;
@@ -90,6 +92,8 @@ session_start();
 			border-style: double;
 			border-radius: 50px;
 			font-size: 15px;
+			font-weight: bold;
+			border: 3px solid white;
 		}
 
 		#btnEnviar:hover{
@@ -102,6 +106,8 @@ session_start();
 			border-style: double;
 			border-radius: 50px;
 			font-size: 15px;
+			font-weight: bold;
+			border: 3px solid white;
 		}
 
 		#btnTerminarConversa{
@@ -113,6 +119,8 @@ session_start();
 			border-radius: 50px;
 			font-size: 15px;
 			margin: 20px;
+			font-weight: bold;
+			border: 3px solid white;
 		}
 
 		#btnTerminarConversa:hover{
@@ -125,6 +133,8 @@ session_start();
 			border-style: double;
 			border-radius: 50px;
 			font-size: 15px;
+			font-weight: bold;
+			border: 3px solid white;
 		}
 
 		#avançarPágina{
@@ -175,7 +185,7 @@ session_start();
 			$codigo = $_SESSION["id"];
 			$usuario = ucwords($_SESSION["nome"]);
 
-			echo "<label style='color:rgb(0, 0, 0)'>Usuário: </label> ".$usuario;?>
+			echo "<img class='UsuarioLogado' src='icones/user1Logado.png'> ".$usuario;?>
 			</p>  	
 			</div>
 
@@ -186,6 +196,13 @@ session_start();
 		</header>
 
 		<?php
+		if(!isset($_SESSION["nome"])){
+			?>
+		<script>
+			window.location = "index.php";
+		</script>
+			<?php
+		}
 	include 'Conexao.php';
 	require_once 'Mensagem.php';
 	
@@ -308,7 +325,7 @@ session_start();
 ?>
 		
 		<main>
-
+		
 	<form method="POST">
 
 		<fieldset style="text-align: center">
@@ -317,6 +334,9 @@ session_start();
 
 <!--PAGINAR -->
 			<?php
+
+			
+			
 			require_once 'Paginar.php';
 
 			$p = new Paginar();

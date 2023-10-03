@@ -28,6 +28,7 @@ session_start();
 	
 
 		textarea{
+			border: 3px solid rgba(1, 207, 207, 0.788);
 			color: white;
 			background: black;
 			font-size: 20px;
@@ -38,28 +39,31 @@ session_start();
 		}
 
 		#conversar{
-			background: rgba(1, 207, 207, 0.788);
+			font-weight: bold;
+			background:  rgba(1, 207, 207, 0.788);
 			color: white;
 			width: 200px;
 			border-color: white;
 			border-style: double;
 			border-radius: 50px;
 			font-size: 15px;
+			border: 3px solid white;
 		}
 
 		#conversar:hover{
-			background-image: url("icones/envio.jpg");
+			font-weight: bold;
 			background:   rgba(158, 48, 94, 0.904);
-			cursor: pointer;
 			color: white;
 			width: 200px;
 			border-color: white;
 			border-style: double;
 			border-radius: 50px;
 			font-size: 15px;
+			border: 3px solid white;
 		}
 
 		#btnTerminarSessão{
+			font-weight: bold;
 			background: rgba(1, 207, 207, 0.788);
 			color: white;
 			width: 150px;
@@ -68,10 +72,11 @@ session_start();
 			border-radius: 50px;
 			font-size: 15px;
 			margin: 20px;
+			border: 3px solid white;
 		}
 
 		#btnTerminarSessão:hover{
-			background-image: url("icones/envio.jpg");
+			font-weight: bold;
 			background:   rgba(158, 48, 94, 0.904);
 			cursor: pointer;
 			color: white;
@@ -80,13 +85,16 @@ session_start();
 			border-style: double;
 			border-radius: 50px;
 			font-size: 15px;
+			border: 3px solid white;
 		}
 
 		#Destinatários{
+			font-weight: bold;
 			background: rgba(1, 207, 207, 0.788);
 			color: white;
 			margin: 15px;
 			font-size: 20px;
+			border: 3px solid white;
 		}
 
 		#Destinatários:hover{
@@ -101,6 +109,40 @@ session_start();
 			background: rgb(211, 23, 23);
 			width: content;
 		}
+
+		#notificações{
+			font-weight: bold;
+			background:  rgba(1, 207, 207, 0.788);
+			color: white;
+			width: 200px;
+			border-color: white;
+			border-style: double;
+			border-radius: 50px;
+			font-size: 15px;
+			border: 3px solid white;
+		}
+
+		#notificações:hover{
+			font-weight: bold;
+			background:   rgba(158, 48, 94, 0.904);
+			color: white;
+			width: 200px;
+			border-color: white;
+			border-style: double;
+			border-radius: 50px;
+			font-size: 15px;
+			border: 3px solid white;
+		}
+
+		#notificações::after{
+			margin-left: 5px;
+			content: attr(count);
+			border: 3px white solid;
+			border-radius: 20px;
+			background: #900000;
+			padding-left: 8px;
+			padding-right: 8px;
+		}
 	</style>
 </head>
 <body class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
@@ -113,11 +155,21 @@ session_start();
 			<div>
 			<p id="sessao">
 			<?php
+
+			if(!isset($_SESSION["nome"])){
+				?>
+			<script>
+				window.location = "index.php";
+			</script>
+				<?php
+			}
+
+
 			$id = $_SESSION["id"];
 			$codigo = $_SESSION["id"];
 			$usuario = ucwords($_SESSION["nome"]);
 
-			echo "<label style='color:rgb(0, 0, 0);'>Usuário: </label> ".$usuario;?>
+			echo "<img class='UsuarioLogado' src='icones/user1Logado.png'> ".$usuario;?>
 			</p>  	
 			</div>
 
@@ -129,17 +181,48 @@ session_start();
 
 		<main>
 
-	<form method="POST">
-
-		<fieldset style="text-align: center">
-
 		<?php
 	include 'Conexao.php';
 	
 
-	$con = getConexao();	
+	$con = getConexao();
+
+	if (isset($_POST["cancelar"])) {
+
+		setcookie("utilizador", "44", time() - 360);
+		
+		session_destroy();
+	
+			?>
+			<script type="text/javascript">
+					
+				window.location = "index.php";
+				</script>
+			<?php
+		}
+
+		$busca = "select count(codSms) from mensagem where Enviante=? or Recebido=?";
+		$stmtbusca = $con->prepare($busca);
+		$stmtbusca->bindValue(1, $usuario);
+		$stmtbusca->bindValue(2, $usuario);
+		$stmtbusca->execute();
+		$resultbusca = $stmtbusca->fetchAll();
+
+		$cont = 0;
+		foreach ($resultbusca as $valuebusca) {
+			$cont = $valuebusca['count(codSms)'];
+			 }
+		?>
+		<button count="<?php echo $cont?>" id="notificações">Total de conversas</button>
+	
+		<form method="POST">
+
+		<fieldset style="text-align: center">
+
+		<?php
+	
 	?>
-			<legend style="font-weight: bold; font-size: 20px;">Criar uma conversa</legend>
+			<legend><strong style="font-weight: bold; font-size: 28px;">Criar uma conversa</strong></legend>
 			
 				
 				<?php
@@ -241,7 +324,7 @@ session_start();
 
 		
 
-		<label>Destinatário:</label> <br>
+		<label style="font-weight: bold; font-size: 20px;">Destinatário:</label> <br>
 	
 
 		<?php
@@ -313,15 +396,7 @@ session_start();
 </body>
 </html>
 <?php
-if (isset($_POST["cancelar"])) {
-		session_destroy();
 
 
-		//header("location:Index.php");
-		?>
-		<script type="text/javascript">
-				
-				window.location = "index.php";
-			</script>
-			<?php
-	}
+
+
