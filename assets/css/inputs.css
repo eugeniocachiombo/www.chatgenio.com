@@ -1,0 +1,32 @@
+input[type="text"], input[type="password"]{
+    font-weight: bold;
+    border-color: white;
+    border-style: double;
+    border: 3px solid white;
+    font-size: 15px;
+}
+
+input[type="submit"]{
+    font-weight: bold;
+    background: rgba(1, 207, 207, 0.788);
+    color: white;
+    border-color: white;
+    border-style: double;
+    border: 3px solid white;
+    font-size: 15px;
+    padding: 10px;
+}
+
+input[type="submit"]:hover{
+    background: rgba(158, 48, 94, 0.904);
+    color: white;
+}
+
+
+#erroUser{
+    margin: 5px;
+    text-align: center;
+    color: white;
+    background: rgb(211, 23, 23);
+    width: content;
+}
