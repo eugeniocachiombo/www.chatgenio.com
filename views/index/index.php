@@ -1,15 +1,19 @@
-<?php include '../inc/headHTML.html';
-?>
-<?php include '../inc/header.html';
+<?php 
+include '../inc/headHTML.html';
+include '../inc/header.html';
 ?>
 
 <title>Formulário de Login</title>
 
 <div class='container '>
+    
     <main class='d-flex justify-content-center align-items-center'>
         <form method='POST' class="w-100">
             <center>
                 <div class=''>
+                    <div class="col pb-2">
+                    <?php include '../../dao/autenticacao.php'; ?>
+                    </div>
 
                     <div class='col-8 col-lg-5 pb-3 d-block justify-content-center align-items-center'>
                         <label class="text-start w-100" style="font-size: 40px; font-wight: bold; border-bottom: 2px solid white;">Login</label> 
@@ -43,7 +47,7 @@
     </main>
 </div>
 
-<?php include '../inc/footer.html';
-?>
-<?php include '../inc/footHTML.html';
+<?php 
+include '../inc/footer.html';
+include '../inc/footHTML.html';
 ?>

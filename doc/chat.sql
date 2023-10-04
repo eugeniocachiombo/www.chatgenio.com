@@ -1,4 +1,6 @@
+CREATE database chat;
 
+use chat;
 
 CREATE TABLE `mensagem` (
   `codSms` int(11) NOT NULL,
