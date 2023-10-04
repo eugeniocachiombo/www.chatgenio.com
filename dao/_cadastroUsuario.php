@@ -45,7 +45,7 @@ function Logar(){
     if ( isset( $_POST[ 'logar' ] ) ) {
         ?>
             <script type = 'text/javascript'>
-                window.location = '../index/index.php';
+                window.location = '../index/';
             </script>
         <?php
     }

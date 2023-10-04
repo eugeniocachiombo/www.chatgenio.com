@@ -18,7 +18,7 @@ function Logar(){
 
 function VerificarSeExiste($nome, $codigo, $usuario_encontrado){
 	if ( $usuario_encontrado[ 'nome' ] == $nome && $usuario_encontrado[ 'codigo' ] == $codigo ) {
-		ValidarAutenticacao($usuario_encontrado[ 'nome' ], $usuario_encontrado[ 'codigo' ]);
+		ValidarAutenticacao($usuario_encontrado[ 'id' ], $usuario_encontrado[ 'nome' ], $usuario_encontrado[ 'codigo' ]);
 	} else {
 		?>
 			<p id = 'erroUser'>Usuario Não Encontrado</p>
@@ -26,18 +26,18 @@ function VerificarSeExiste($nome, $codigo, $usuario_encontrado){
 	}
 }
 
-function ValidarAutenticacao($nome, $codigo){
+function ValidarAutenticacao($id, $nome, $codigo){
 	if ( empty( $nome ) || empty( $codigo ) ) {
 		?>
 			<p id = 'erroUser'> Introduza correctamente os seus dados, não deve conter campo vazio </p>
 		<?php
 	} else {
 		$usuarioDao = new UsuarioDao();
-		$usuarioDao->GuardarSessao($usuario_encontrado[ 'id' ], $usuario_encontrado[ 'nome' ], $usuario_encontrado[ 'codigo' ]);
-		setcookie( 'utilizador', $usuario_encontrado[ 'id' ], time()+3600 );
+		$usuarioDao->GuardarSessao($id, $nome, $codigo);
+		setcookie( 'utilizador', $id, time()+3600 );
 		?>
 			<script>
-				window.location = '../inicio/inicio.php';
+				window.location = '../inicio/';
 			</script>
 		<?php
 	}
@@ -47,7 +47,7 @@ function Cadastrar(){
 	if ( isset( $_POST[ 'cadastrar' ] ) ) {
 		?>
 			<script type = 'text/javascript'>
-				window.location = '../cadastro/cadastro.php';
+				window.location = '../cadastro/';
 			</script>
 		<?php
 	}

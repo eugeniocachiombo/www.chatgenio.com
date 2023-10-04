@@ -1,150 +1,9 @@
 <?php
 session_start();
+include '../inc/headHTML.html';
+include '../inc/header.html';
 ?>
-<!DOCTYPE html>
-<html>
-<head lang="pt-BR">
-<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width-device-width, initial-scale=1">
 
-	<title>Inicio</title>
-
-	<script src="js/novoJquery.js"></script>
-	
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.mask.js"></script>
-
-	<script src="js/novoJquery.js"></script>
-	
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.mask.js"></script>
-
-
-	<link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css">
-
-	<link rel="stylesheet" href="estrutura.css">
-	<style type="text/css">
-	
-
-		textarea{
-			border: 3px solid rgba(1, 207, 207, 0.788);
-			color: white;
-			background: black;
-			font-size: 20px;
-		}
-
-		input{
-			font-size: 20px;
-		}
-
-		#conversar{
-			font-weight: bold;
-			background:  rgba(1, 207, 207, 0.788);
-			color: white;
-			width: 200px;
-			border-color: white;
-			border-style: double;
-			border-radius: 50px;
-			font-size: 15px;
-			border: 3px solid white;
-		}
-
-		#conversar:hover{
-			font-weight: bold;
-			background:   rgba(158, 48, 94, 0.904);
-			color: white;
-			width: 200px;
-			border-color: white;
-			border-style: double;
-			border-radius: 50px;
-			font-size: 15px;
-			border: 3px solid white;
-		}
-
-		#btnTerminarSessão{
-			font-weight: bold;
-			background: rgba(1, 207, 207, 0.788);
-			color: white;
-			width: 150px;
-			border-color: white;
-			border-style: double;
-			border-radius: 50px;
-			font-size: 15px;
-			margin: 20px;
-			border: 3px solid white;
-		}
-
-		#btnTerminarSessão:hover{
-			font-weight: bold;
-			background:   rgba(158, 48, 94, 0.904);
-			cursor: pointer;
-			color: white;
-			width: 150px;
-			border-color: white;
-			border-style: double;
-			border-radius: 50px;
-			font-size: 15px;
-			border: 3px solid white;
-		}
-
-		#Destinatários{
-			font-weight: bold;
-			background: rgba(1, 207, 207, 0.788);
-			color: white;
-			margin: 15px;
-			font-size: 20px;
-			border: 3px solid white;
-		}
-
-		#Destinatários:hover{
-			background: rgba(158, 48, 94, 0.904);
-			color: white;
-			margin: 15px;
-			font-size: 20px;
-		}
-
-		#ErroDestinatário{
-			color: white;
-			background: rgb(211, 23, 23);
-			width: content;
-		}
-
-		#notificações{
-			font-weight: bold;
-			background:  rgba(1, 207, 207, 0.788);
-			color: white;
-			width: 200px;
-			border-color: white;
-			border-style: double;
-			border-radius: 50px;
-			font-size: 15px;
-			border: 3px solid white;
-		}
-
-		#notificações:hover{
-			font-weight: bold;
-			background:   rgba(158, 48, 94, 0.904);
-			color: white;
-			width: 200px;
-			border-color: white;
-			border-style: double;
-			border-radius: 50px;
-			font-size: 15px;
-			border: 3px solid white;
-		}
-
-		#notificações::after{
-			margin-left: 5px;
-			content: attr(count);
-			border: 3px white solid;
-			border-radius: 20px;
-			background: #900000;
-			padding-left: 8px;
-			padding-right: 8px;
-		}
-	</style>
-</head>
 <body class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
 
 		<header>
@@ -159,7 +18,7 @@ session_start();
 			if(!isset($_SESSION["nome"])){
 				?>
 			<script>
-				window.location = "index.php";
+				window.location = "../index";
 			</script>
 				<?php
 			}
