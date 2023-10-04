@@ -30,3 +30,11 @@ input[type="submit"]:hover{
     background: rgb(211, 23, 23);
     width: content;
 }
+
+#sucessoUser{
+    margin: 5px;
+    text-align: center;
+    color: white;
+    background: #299;
+    width: content;
+}
