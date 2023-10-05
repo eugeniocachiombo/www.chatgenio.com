@@ -6,6 +6,20 @@ input[type="text"], input[type="password"]{
     font-size: 15px;
 }
 
+select::-ms-expand{
+    display: block;
+}
+
+select {
+    font-weight: bold;
+    background: rgba(1, 207, 207, 0.788);
+    color: white;
+    border-color: white;
+    border-style: double;
+    border: 3px solid white;
+    padding: 30px;
+}
+
 input[type="submit"], button, select{
     font-weight: bold;
     background: rgba(1, 207, 207, 0.788);
