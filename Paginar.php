@@ -3,7 +3,7 @@
 class Paginar {
 
      private $num;
-     private  $activo;
+     private $activo;
 
      function __construct(){
           $this->num = 0;

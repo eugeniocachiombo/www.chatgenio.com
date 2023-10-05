@@ -6,7 +6,7 @@ input[type="text"], input[type="password"]{
     font-size: 15px;
 }
 
-input[type="submit"]{
+input[type="submit"], button, select{
     font-weight: bold;
     background: rgba(1, 207, 207, 0.788);
     color: white;
@@ -17,7 +17,7 @@ input[type="submit"]{
     padding: 10px;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover,  select:hover{
     background: rgba(158, 48, 94, 0.904);
     color: white;
 }

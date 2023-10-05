@@ -12,6 +12,24 @@ class UsuarioDao{
             return $stmt->fetch();
         }
 
+        function BuscarTodosExceptoLogado($nome){
+            $con = getConexao();
+            $sql = 'select * from usuario where nome not like ? ';
+            $stmt = $con->prepare( $sql );
+            $stmt->bindvalue( 1, $nome );
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }
+
+        function BuscarPorID($id){
+            $con = getConexao();
+            $sql = 'select * from usuario where id = ?';
+            $stmt = $con->prepare( $sql );
+            $stmt->bindValue( 1, $nome );
+            $stmt->execute();
+            return $stmt->fetch();
+        }
+
         function CadastrarUsuario($nome,$codigo){
             $con = GetConexao();
             $sql = "insert into usuario (nome, codigo) values(?, ?)";

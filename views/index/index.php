@@ -1,7 +1,9 @@
 <?php 
 include '../inc/headHTML.html';
-include '../inc/header.html';
+include '../inc/header.php';
 ?>
+
+
 
 <title>Formulário de Login</title>
 
