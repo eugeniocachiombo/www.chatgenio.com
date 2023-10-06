@@ -24,7 +24,7 @@ if ( !$pagina_inicio ) {
 }
 
 $resultado = $mensagemDao->TotalConversasEmissorReceptor( $nome_usuario, $nome_destino );
-$resultado = $total_paginas = ceil( $resultado[ 'count(codsms)' ] / $limite );
+$total_paginas = ceil( $resultado[ 'count(codsms)' ] / $limite );
 
 $pagina_instancia = new Paginar();
 $pagina_instancia->setNum( $total_paginas );

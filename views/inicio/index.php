@@ -38,11 +38,10 @@ include '../inc/header.php';
                             } else {
                                 include '../../dao/_paginacao.php';
                                 ?>
-                                    <script type='text/javascript'>
-                                        window.location = "Conversa.php?pagina=<?=$pagTotal1?>";
+                                    <script>
+                                        window.location = "../conversa/index.php?pagina=<?php echo $total_paginas; ?>";
                                     </script>
                                 <?php
-
                             }
                         }
                         ?>
