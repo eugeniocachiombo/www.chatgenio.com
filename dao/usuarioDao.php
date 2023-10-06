@@ -25,7 +25,7 @@ class UsuarioDao{
             $con = getConexao();
             $sql = 'select * from usuario where id = ?';
             $stmt = $con->prepare( $sql );
-            $stmt->bindValue( 1, $nome );
+            $stmt->bindValue( 1, $id );
             $stmt->execute();
             return $stmt->fetch();
         }
