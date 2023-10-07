@@ -25,8 +25,8 @@ include '../inc/header.php';
 
                 <div class='col-8 col-lg-5 pb-3 d-block justify-content-center align-items-center'>
                     <label class='text-start w-100'
-                        style='font-size: 30px; font-wight: bold; border-bottom: 2px solid white;'>Criar uma
-                        Conversa</label>
+                        style='font-size: 26px; font-wight: bold; border-bottom: 2px solid white;'>
+                        Criar uma Conversa</label>
                 </div>
 
                 <div class=' w-100 col-8 col-lg-5 d-block justify-content-center align-items-center'>

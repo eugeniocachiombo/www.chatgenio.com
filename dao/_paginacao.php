@@ -29,3 +29,4 @@ $total_paginas = ceil( $resultado[ 'count(codsms)' ] / $limite );
 $pagina_instancia = new Paginar();
 $pagina_instancia->setNum( $total_paginas );
 $_SESSION[ 'pag' ] = $pagina_instancia->getNum();
+

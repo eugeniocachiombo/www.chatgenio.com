@@ -60,4 +60,14 @@
     
         return $cont;
     }
+
+    function EliminarMensagem($idDeletar){
+        $con = getConexao();
+        $texto = 'Esta Mensagem foi excluida por: '.$usuario;
+        $sql = "update mensagem set texto = ? where codsms = ?";
+        $stmt = $con->prepare( $sql );
+        $stmt->bindValue( 1, $texto );
+        $stmt->bindValue( 2, $idDeletar );
+        $stmt->execute();
+    }
  }
