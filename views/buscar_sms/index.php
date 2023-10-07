@@ -1,44 +1,12 @@
 <?php
-session_start();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	
-	<script src="js/novoJquery.js"></script>
-	
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.mask.js"></script>
+include '../../dao/__conexao.php';
+include '../../dao/usuarioDao.php';
+include '../../dao/mensagemDao.php';
+include '../../class/paginar.php';
+include '../../class/mensagem.php';
+include '../../class/usuario.php';
+include '../../dao/_paginacao.php';
 
-	<style>
-		body{
-			color: white;
-			background-color: black;
-		}
-	</style>
-
-</head>
-<body>
-
-
-	
-
-<?php
-
-if(!isset($_SESSION["nome"])){
-	?>
-<script>
-	window.location = "index.php";
-</script>
-	<?php
-}
-    include 'Conexao.php';
-	require_once 'Mensagem.php';
-	require_once 'Paginar.php';
 
 			$p = new Paginar();
 
@@ -205,9 +173,6 @@ limit $inicio, $limite
 			
 			} ?>
 			
-		
-</body>
-</html>
 
 
 				

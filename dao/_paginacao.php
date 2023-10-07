@@ -1,8 +1,7 @@
 <?php
-include '../../class/paginar.php';
-include '../../class/usuario.php';
 
-$id_destinatario = $_POST[ 'destinatario' ];
+
+$id_destinatario = $_SESSION[ 'destinatario' ];
 $usuarioDao = new UsuarioDao();
 $resultado = $usuarioDao->BuscarPorID( $id_destinatario );
 $_SESSION[ 'Nomedestino' ] = ucwords( $resultado[ 'nome' ] );
@@ -23,6 +22,7 @@ if ( !$pagina_inicio ) {
     $pagina_actual = $pagina_inicio;
 }
 
+$mensagemDao = new MensagemDao();
 $resultado = $mensagemDao->TotalConversasEmissorReceptor( $nome_usuario, $nome_destino );
 $total_paginas = ceil( $resultado[ 'count(codsms)' ] / $limite );
 

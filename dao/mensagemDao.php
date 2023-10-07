@@ -1,6 +1,23 @@
 <?php
  class MensagemDao{
 
+    function Cadastrar($usuario, $receptor, $texto){
+        $con = getConexao();
+        $sql = "insert into mensagem(texto, Emissor, Receptor, Enviante, Recebido)
+		values(?, ?, ?, ?, ?) ";
+		$stmt= $con->prepare($sql);
+		$stmt->bindvalue(1, $texto);
+		$stmt->bindvalue(2, $usuario[0]);
+		$stmt->bindvalue(3, $receptor->getId());
+		$stmt->bindvalue(4, $usuario[1]);
+        $stmt->bindvalue(5, $receptor->getNome());
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     function BuscarMensagem($nome_usuario_logado, $receptor){
         $con = getConexao();
         $sql = "select * from mensagem 

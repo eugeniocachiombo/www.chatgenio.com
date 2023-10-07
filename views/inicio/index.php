@@ -3,6 +3,8 @@ include '../../dao/__conexao.php';
 include '../../dao/usuarioDao.php';
 include '../../dao/mensagemDao.php';
 include '../../class/mensagem.php';
+include '../../class/paginar.php';
+include '../../class/usuario.php';
 include '../inc/headHTML.html';
 include '../inc/header.php';
 ?>
@@ -36,6 +38,7 @@ include '../inc/header.php';
                                 ?> <p id='erroUser'> Selecione um destinatário </p> <?php
 
                             } else {
+                                $_SESSION[ 'destinatario' ] = $_POST[ 'destinatario' ];
                                 include '../../dao/_paginacao.php';
                                 ?>
                                     <script>

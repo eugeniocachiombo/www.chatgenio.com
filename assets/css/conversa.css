@@ -1,0 +1,88 @@
+
+
+#belezaDaSmsEnviante{
+	color: white;
+	background: rgba(1, 207, 207, 0.788);
+	padding: 50px;
+	text-align: center;
+	width: content;
+	border-radius: 50px;
+	border: 3px solid white;
+}
+
+#belezaDaSmsReceptor{
+	color: white;
+	background: rgba(158, 48, 94, 0.904);
+	padding: 50px;
+	text-align: center;
+	width: content;
+	border-radius: 50px;
+	border: 3px solid white;
+}
+
+#btnDel{
+	font-weight: bold;
+	color: white;
+	background: rgba(158, 48, 94, 0.904);
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	font-size: 15px;
+	width: contain;
+	height: contain;
+	border-color: white;
+	border-radius: 50px;
+	border: 3px solid white;
+}
+
+#btnDel:hover{
+	color: white;
+	background: rgba(158, 48, 94, 0.904);
+	margin: 5px;
+	padding: 5px;
+	cursor: pointer;
+	text-align: center;
+	width: 150px;
+	height: 35px;
+	border-color: white;
+	border-style: double;
+	border-radius: 50px;
+	border: 3px solid white;
+}
+
+#smsExcluida{
+	color: white;
+	background: rgb(211, 23, 23);
+	width: content;
+}
+
+#avançarPágina{
+	text-decoration: none;
+	background: rgba(1, 207, 207, 0.788);
+	font-size: 20px;
+	color: white;
+	border: 3px solid white;
+	border-radius: 20px;
+	margin: 5px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+#avançarPágina:hover{
+	text-decoration: none;
+	background:  rgba(158, 48, 94, 0.904);
+	font-size: 20px;
+	color: white;
+	border: 3px solid white;
+	border-radius: 20px;
+	margin: 5px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+#ErroDeEnvio{
+	text-align: center;
+	color: white;
+	background: rgb(211, 23, 23);
+	width: content;
+}
