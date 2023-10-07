@@ -28,9 +28,8 @@ include '../../dao/_paginacao.php';
 						<?php
 					}
 					
-					if ( isset( $_POST[ 'eliminarMensagem' ] ) ) {
+					if ( isset( $_POST['eliminarMensagem'] ) ) {
 						$idDeletar = $_POST[ 'codSmsEliminar' ];
-						?> <script>window.alert("<?php echo $_POST['textoEliminar'] ?>");</script> <?php
 						$mensagemDao = new MensagemDao();
 						$mensagemDao->EliminarMensagem($idDeletar, $nome_usuario, $_POST['textoEliminar']);
 					}
