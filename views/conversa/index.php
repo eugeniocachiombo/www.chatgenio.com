@@ -28,10 +28,11 @@ include '../../dao/_paginacao.php';
 						<?php
 					}
 					
-					if ( isset( $_POST[ 'BotaoDel_Sms' ] ) ) {
-						$idDeletar = $_POST[ 'Del' ];
+					if ( isset( $_POST[ 'eliminarMensagem' ] ) ) {
+						$idDeletar = $_POST[ 'codSmsEliminar' ];
+						?> <script>window.alert("<?php echo $_POST['textoEliminar'] ?>");</script> <?php
 						$mensagemDao = new MensagemDao();
-						$mensagemDao->EliminarMensagem($idDeletar);
+						$mensagemDao->EliminarMensagem($idDeletar, $nome_usuario, $_POST['textoEliminar']);
 					}
 				?> 
 	</div>
@@ -45,6 +46,7 @@ include '../../dao/_paginacao.php';
 			<!--PAGINAR -->
 			<?php include '../../dao/_rotasPaginacao.php'; ?>
 			
+			<div id="buscarSms"></div>
 			<script>
 				setInterval(() => {
 					$('#buscarSms').load('../buscar_sms');
@@ -62,7 +64,7 @@ include '../../dao/_paginacao.php';
 			</div>
 
 			<div class='col-8 col-lg-5 pt-3 '>
-				<input type='hidden' name='id_receptor' value="<?php echo $_SESSION['id_destino'] ?>" >
+				<input type='hidden' name='id_receptor' value="<?php echo $_SESSION[ 'destinatario' ]; ?>" >
 			</div>
 			
 			<div class='col-8 col-lg-5 pt-3 '>

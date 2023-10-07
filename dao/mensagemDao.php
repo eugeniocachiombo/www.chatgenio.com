@@ -8,9 +8,9 @@
 		$stmt= $con->prepare($sql);
 		$stmt->bindvalue(1, $texto);
 		$stmt->bindvalue(2, $usuario[0]);
-		$stmt->bindvalue(3, $receptor->getId());
+		$stmt->bindvalue(3, $receptor[0]);
 		$stmt->bindvalue(4, $usuario[1]);
-        $stmt->bindvalue(5, $receptor->getNome());
+        $stmt->bindvalue(5, $receptor[1]);
         if($stmt->execute()){
             return true;
         }else{
@@ -22,6 +22,20 @@
         $con = getConexao();
         $sql = "select * from mensagem 
         where Enviante=? and Recebido=? or Recebido=? and Enviante=?";
+        $stmt = $con->prepare( $sql );
+        $stmt->bindValue( 1, $nome_usuario_logado );
+        $stmt->bindValue( 2, $receptor );
+        $stmt->bindValue( 3, $nome_usuario_logado );
+        $stmt->bindValue( 4, $receptor );
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function BuscarMensagemLimitado($nome_usuario_logado, $receptor, $pagina_inicio, $limite){
+        $con = getConexao();
+        $sql = "select * from mensagem  
+        where Enviante=? and Recebido=? or Recebido=? and Enviante=?
+        limit $pagina_inicio, $limite";
         $stmt = $con->prepare( $sql );
         $stmt->bindValue( 1, $nome_usuario_logado );
         $stmt->bindValue( 2, $receptor );
@@ -61,13 +75,17 @@
         return $cont;
     }
 
-    function EliminarMensagem($idDeletar){
+    function EliminarMensagem($idDeletar, $nome_usuario, $texto){
         $con = getConexao();
-        $texto = 'Esta Mensagem foi excluida por: '.$usuario;
         $sql = "update mensagem set texto = ? where codsms = ?";
         $stmt = $con->prepare( $sql );
         $stmt->bindValue( 1, $texto );
         $stmt->bindValue( 2, $idDeletar );
-        $stmt->execute();
+        if($stmt->execute()){
+            echo "Sucesso";
+        }else{
+            echo "Erro";
+        }
+
     }
  }

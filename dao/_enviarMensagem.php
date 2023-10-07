@@ -12,27 +12,24 @@ if ( !empty( $_POST[ 'texto' ] ) ) {
     $texto = $_POST[ 'texto' ];
 
     $_SESSION[ 'id_destino' ] = $id_receptor;
-    $receptor = new Usuario();
-    $receptor->setNome( $_SESSION[ 'Nomedestino' ] );
+    $receptor = array( $id_receptor, $_SESSION[ 'Nomedestino' ] );
 
     $mensagemDao = new MensagemDao();
     $resultado = $mensagemDao->Cadastrar( $usuario, $receptor, $texto );
 
     if ( $resultado ) {
         ?>
-        <script type = 'text/javascript'>
-        window.location = "?pagina=<?=$total_paginas?>";
-        </script>
-
+            <script type = 'text/javascript'>
+                 window.location = "?pagina=<?=$total_paginas?>";
+            </script>
         <?php
     } else {
         echo 'Erro ao enviar na base de dados';
     }
 } else {
     ?>
-
-    <p id = 'erroUser'> 
-    Impossível enviar mensagem, campo de texto está vazio
-    </p>
-
-    <?php }
+        <p id = 'erroUser'> 
+            Impossível enviar mensagem, campo de texto está vazio
+        </p>
+    <?php 
+}
