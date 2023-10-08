@@ -2,7 +2,7 @@
  class MensagemDao{
 
     function Cadastrar($usuario, $receptor, $texto){
-        $con = getConexao();
+        $con = GetConexao();
         $sql = "insert into mensagem(texto, Emissor, Receptor, Enviante, Recebido)
 		values(?, ?, ?, ?, ?) ";
 		$stmt= $con->prepare($sql);
@@ -19,7 +19,7 @@
     }
 
     function BuscarMensagem($nome_usuario_logado, $receptor){
-        $con = getConexao();
+        $con = GetConexao();
         $sql = "select * from mensagem 
         where Enviante=? and Recebido=? or Recebido=? and Enviante=?";
         $stmt = $con->prepare( $sql );
@@ -32,7 +32,7 @@
     }
 
     function BuscarMensagemLimitado($nome_usuario_logado, $receptor, $inicio_paginar, $limite){
-        $con = getConexao();
+        $con = GetConexao();
         $sql = "select * from mensagem  
         where Enviante=? and Recebido=? or Recebido=? and Enviante=?
         limit $inicio_paginar, $limite";
@@ -46,7 +46,7 @@
     }
 
     function TotalConversasEmissorReceptor($nome_usuario, $nome_destino){
-        $con = getConexao();
+        $con = GetConexao();
         $sql = "select count(codsms) from mensagem
         where Enviante=? and Recebido=? or Recebido=? and Enviante=?";
         $stmt = $con->prepare( $sql );
@@ -59,7 +59,7 @@
     }
 
     function TotalConversasUsuario( $usuario ) {
-        $con = getConexao();
+        $con = GetConexao();
         $busca = 'select count(codSms) from mensagem where Enviante=? or Recebido=?';
         $stmtbusca = $con->prepare( $busca );
         $stmtbusca->bindValue( 1, $usuario );
@@ -76,7 +76,7 @@
     }
 
     function EliminarMensagem($idDeletar, $nome_usuario, $texto){
-        $con = getConexao();
+        $con = GetConexao();
         $sql = "update mensagem set texto = ? where codsms = ?";
         $stmt = $con->prepare( $sql );
         $stmt->bindValue( 1, $texto );

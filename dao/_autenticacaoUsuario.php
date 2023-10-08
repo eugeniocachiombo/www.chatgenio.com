@@ -7,7 +7,7 @@ Cadastrar();
 
 function Logar(){
 	if ( isset( $_POST[ 'entrar' ] ) ) {
-		$con = getConexao();
+		$con = GetConexao();
 		$nome = mb_convert_case( $_POST[ 'nome' ], MB_CASE_LOWER );
 		$codigo = $_POST[ 'codigo' ];
 		$usuarioDao = new UsuarioDao();
@@ -32,8 +32,11 @@ function ValidarAutenticacao($id, $nome, $codigo){
 			<p id = 'erroUser'> Introduza correctamente os seus dados, não deve conter campo vazio </p>
 		<?php
 	} else {
-		$usuarioDao = new UsuarioDao();
-		$usuarioDao->GuardarSessao($id, $nome, $codigo);
+		//$usuarioDao = new UsuarioDao();
+		//$usuarioDao->GuardarSessao($id, $nome, $codigo);
+		$_SESSION[ 'id' ] = $id;
+        $_SESSION[ 'nome' ] = $nome;
+        $_SESSION[ 'codigo' ] = $codigo;
 		setcookie( 'utilizador', $id, time()+3600 );
 		?>
 			<script>

@@ -3,7 +3,7 @@
 class UsuarioDao{
 
         function BuscarUsuario($nome,$codigo){
-            $con = getConexao();
+            $con = GetConexao();
             $sql = 'select * from usuario where nome = ? and codigo = ?';
             $stmt = $con->prepare( $sql );
             $stmt->bindValue( 1, $nome );
@@ -13,7 +13,7 @@ class UsuarioDao{
         }
 
         function BuscarTodosExceptoLogado($nome){
-            $con = getConexao();
+            $con = GetConexao();
             $sql = 'select * from usuario where nome not like ? ';
             $stmt = $con->prepare( $sql );
             $stmt->bindvalue( 1, $nome );
@@ -22,7 +22,7 @@ class UsuarioDao{
         }
 
         function BuscarPorID($id){
-            $con = getConexao();
+            $con = GetConexao();
             $sql = 'select * from usuario where id = ?';
             $stmt = $con->prepare( $sql );
             $stmt->bindValue( 1, $id );
@@ -49,9 +49,9 @@ class UsuarioDao{
         }
 
         function GuardarSessao($id, $nome, $codigo){
-            $_SESSION[ 'id' ] = $id;
+            /*$_SESSION[ 'id' ] = $id;
             $_SESSION[ 'nome' ] = $nome;
-            $_SESSION[ 'codigo' ] = $codigo;
+            $_SESSION[ 'codigo' ] = $codigo;*/
         }
 }
 ?>
