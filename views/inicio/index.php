@@ -27,7 +27,7 @@ include '../../config/verificar_sessao.php';
 
                 <div class='col-8 col-lg-5 pb-3 d-block justify-content-center align-items-center'>
                     <label class='text-start w-100'
-                        style='font-size: 26px; font-wight: bold; border-bottom: 2px solid white;'>
+                        style='font-size: 22px; font-wight: bold; border-bottom: 2px solid white;'>
                         Criar uma Conversa</label>
                 </div>
 

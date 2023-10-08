@@ -20,7 +20,8 @@ select {
     padding: 30px;
 }
 
-input[type="submit"], button, select{
+input[type="submit"], button, #btnEntrar, 
+#btnCdastrar, select {
     font-weight: bold;
     background: rgba(1, 207, 207, 0.788);
     color: white;
@@ -31,7 +32,9 @@ input[type="submit"], button, select{
     padding: 10px;
 }
 
-input[type="submit"]:hover,  select:hover{
+input[type="submit"]:hover,  select:hover,
+#btnEntrar:hover, #btnCdastrar:hover
+{
     background: rgba(158, 48, 94, 0.904);
     color: white;
 }

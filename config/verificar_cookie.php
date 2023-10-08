@@ -1,5 +1,5 @@
 <?php
-
+/*
 if ( isset( $_COOKIE[ 'utilizador' ] ) && $_COOKIE[ 'utilizador' ] != null ) {
     include '../../dao/__conexao.php';
     $con = GetConexao();
@@ -7,17 +7,28 @@ if ( isset( $_COOKIE[ 'utilizador' ] ) && $_COOKIE[ 'utilizador' ] != null ) {
     $stmt = $con->prepare( $sql );
     $stmt->bindValue( 1, ( $_COOKIE[ 'utilizador' ] ) );
     $stmt->execute();
-    $resulto = $stmt->fetch();
+    $resultado = $stmt->fetch();
 
-    $_SESSION[ 'id' ] = $resulto[ 'id' ];
-    $_SESSION[ 'nome' ] = $resulto[ 'nome' ];
-    $_SESSION[ 'codigo' ] = $resulto[ 'codigo' ];
-    ?>
+    $_SESSION[ 'id' ] = $resultado[ 'id' ];
+    $_SESSION[ 'nome' ] = $resultado[ 'nome' ];
+    $_SESSION[ 'codigo' ] = $resultado[ 'codigo' ];
     
-		<script>
-			window.location = '../inicio/';
-		</script>
+    ?>
+      <script>
+          window.location = '../inicio/';
+      </script>
     <?php
+
+}
+*/
+
+
+if(!empty($_SESSION["nome"])){
+	?>
+		<script>
+			window.location = "../inicio";
+		</script>
+	<?php
 }
 
 ?>

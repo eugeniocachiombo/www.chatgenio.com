@@ -1,7 +1,7 @@
-<?php
+<?php 
 include '../inc/headHTML.php';
 include '../inc/header.php';
-//include '../../config/verificar_cookie.php';
+include '../../config/verificar_cookie.php';
 ?>
 
 <title>Formulário de Cadastro</title>
