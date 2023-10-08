@@ -1,7 +1,7 @@
 <?php 
 include '../inc/headHTML.html';
 include '../inc/header.php';
-include '../../config/verificar_cookie.php';
+//include '../../config/verificar_cookie.php';
 ?>
 
 
