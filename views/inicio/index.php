@@ -7,9 +7,8 @@ include '../../class/paginar.php';
 include '../../class/usuario.php';
 include '../inc/headHTML.html';
 include '../inc/header.php';
-include '../../config/verificar_cookie.php';
-include '../../config/verificar_sessao.php';
 include '../../config/destruir_cookie_e_sessao.php';
+include '../../config/verificar_sessao.php';
 ?>
 
 <div class='container '>

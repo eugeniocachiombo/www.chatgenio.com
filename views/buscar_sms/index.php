@@ -6,7 +6,6 @@ include '../../class/paginar.php';
 include '../../class/mensagem.php';
 include '../../class/usuario.php';
 include '../../dao/_paginacao.php';
-include '../../config/verificar_cookie.php';
 include '../../config/verificar_sessao.php';
 ?>
 

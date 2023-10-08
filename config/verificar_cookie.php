@@ -11,6 +11,7 @@ if ( isset( $_COOKIE[ 'utilizador' ] ) && $_COOKIE[ 'utilizador' ] != null ) {
     $_SESSION[ 'nome' ] = $resulto[ 'nome' ];
     $_SESSION[ 'codigo' ] = $resulto[ 'codigo' ];
     ?>
+    
 		<script>
 			window.location = '../inicio/';
 		</script>

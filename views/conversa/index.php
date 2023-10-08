@@ -8,7 +8,6 @@ include '../../class/usuario.php';
 include '../inc/headHTML.html';
 include '../inc/header.php';
 include '../../dao/_paginacao.php';
-include '../../config/verificar_cookie.php';
 include '../../config/verificar_sessao.php';
 ?>
 
@@ -71,7 +70,7 @@ include '../../config/verificar_sessao.php';
             </div>
 			
 			<div class='col-8 col-lg-5  '>
-				<input class="form-control" id = 'btnTerminarConversa' type = 'submit' name = 'cancelar' value = 'Terminar conversa'>
+				<input class="form-control" id = 'btnTerminarConversa' type = 'submit' name = 'cancelar' value = 'Sair da Conversa'>
 			</div>
 			</center>
         </form>
