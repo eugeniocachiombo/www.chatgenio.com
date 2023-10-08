@@ -31,11 +31,11 @@
         return $stmt->fetchAll();
     }
 
-    function BuscarMensagemLimitado($nome_usuario_logado, $receptor, $pagina_actual, $limite){
+    function BuscarMensagemLimitado($nome_usuario_logado, $receptor, $inicio_paginar, $limite){
         $con = getConexao();
         $sql = "select * from mensagem  
         where Enviante=? and Recebido=? or Recebido=? and Enviante=?
-        limit $pagina_actual, $limite";
+        limit $inicio_paginar, $limite";
         $stmt = $con->prepare( $sql );
         $stmt->bindValue( 1, $nome_usuario_logado );
         $stmt->bindValue( 2, $receptor );

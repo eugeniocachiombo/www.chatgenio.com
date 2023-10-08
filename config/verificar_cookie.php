@@ -1,7 +1,6 @@
 <?php
 
 if ( isset( $_COOKIE[ 'utilizador' ] ) && $_COOKIE[ 'utilizador' ] != null ) {
-
     $sql = 'select * from usuario where id = ?';
     $stmt = $con->prepare( $sql );
     $stmt->bindValue( 1, ( $_COOKIE[ 'utilizador' ] ) );

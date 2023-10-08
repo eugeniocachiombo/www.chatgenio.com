@@ -8,9 +8,9 @@ include '../../class/usuario.php';
 include '../inc/headHTML.html';
 include '../inc/header.php';
 include '../../dao/_paginacao.php';
+include '../../config/verificar_cookie.php';
+include '../../config/verificar_sessao.php';
 ?>
-
-	
 
 <div class='container '>
 	<div class="pt-4">
@@ -36,7 +36,7 @@ include '../../dao/_paginacao.php';
 				?> 
 	</div>
 	
-    <main class='w-100 d-flex justify-content-center align-items-center'>
+    <main class='w-100 d-flex justify-content-center align-items-center pb-5'>
         <form method='POST' class=" w-100">
             <center>
 			<legend style='font-weight: bold; font-size: 20px;'>Em chat com <?php echo $_SESSION[ 'Nomedestino' ] ?>

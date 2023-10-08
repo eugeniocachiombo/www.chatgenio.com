@@ -20,6 +20,7 @@ if ( $cont > 0 ) {
         <?php
     }
 
+    $_SESSION["pagina_actual"] = $pagina_actual;
     echo "<label id='avançarPágina'>".$pagina_actual.' </label>';
 
     if (   $pagina_actual < $total_paginas ) {
