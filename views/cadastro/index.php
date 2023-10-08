@@ -1,5 +1,5 @@
 <?php
-include '../inc/headHTML.html';
+include '../inc/headHTML.php';
 include '../inc/header.php';
 //include '../../config/verificar_cookie.php';
 ?>

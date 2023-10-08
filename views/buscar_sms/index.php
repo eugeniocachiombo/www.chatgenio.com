@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
+
 <?php
 include '../../dao/__conexao.php';
 include '../../dao/usuarioDao.php';
@@ -30,7 +33,7 @@ foreach ( $resultado as $value ) {
 				</p>
 
 	<?php
-			} else	if ( ucfirst($value[ 'Enviante' ]) == ucfirst($_SESSION["nome"]) ) {
+			} else	if ( ucwords($value[ 'Enviante' ]) == ucwords($_SESSION["nome"]) ) {
 				?>
 
 					<div class=" w-100 d-flex justify-content-end align-items-center" >

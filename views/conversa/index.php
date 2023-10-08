@@ -1,13 +1,12 @@
-<?php session_start(); ?>
 <?php
+include '../inc/headHTML.php';
+include '../inc/header.php';
 include '../../dao/__conexao.php';
 include '../../dao/usuarioDao.php';
 include '../../dao/mensagemDao.php';
 include '../../class/paginar.php';
 include '../../class/mensagem.php';
 include '../../class/usuario.php';
-include '../inc/headHTML.html';
-include '../inc/header.php';
 include '../../dao/_paginacao.php';
 include '../../config/verificar_sessao.php';
 ?>
