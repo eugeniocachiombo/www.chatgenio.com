@@ -17,11 +17,11 @@ function Logar(){
 }
 
 function VerificarSeExiste($nome, $codigo, $usuario_encontrado){
-	if ( $usuario_encontrado[ 'nome' ] == $nome && $usuario_encontrado[ 'codigo' ] == $codigo ) {
+	if ( !empty($resultado_encontrado[ 'nome' ]) && $usuario_encontrado[ 'nome' ] == $nome && !empty($usuario_encontrado[ 'codigo' ]) && $usuario_encontrado[ 'codigo' ] == $codigo ) {
 		ValidarAutenticacao($usuario_encontrado[ 'id' ], $usuario_encontrado[ 'nome' ], $usuario_encontrado[ 'codigo' ]);
 	} else {
 		?>
-			<p id = 'erroUser'>Usuario Não Encontrado</p>
+			<p class="mt-4" id = 'erroUser'>Usuario Não Encontrado</p>
 		<?php
 	}
 }
@@ -29,7 +29,7 @@ function VerificarSeExiste($nome, $codigo, $usuario_encontrado){
 function ValidarAutenticacao($id, $nome, $codigo){
 	if ( empty( $nome ) || empty( $codigo ) ) {
 		?>
-			<p id = 'erroUser'> Introduza correctamente os seus dados, não deve conter campo vazio </p>
+			<p class="mt-4" id = 'erroUser'> Introduza correctamente os seus dados, não deve conter campo vazio </p>
 		<?php
 	} else {
 		$usuarioDao = new UsuarioDao();

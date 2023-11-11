@@ -5,7 +5,6 @@ include 'usuarioDao.php';
 Cadastrar();
 Logar();
 
-
 function Cadastrar(){
     if ( isset( $_POST[ 'cadastrar' ] ) ) {
         $nome = mb_convert_case( $_POST[ 'nome' ], MB_CASE_LOWER );
@@ -17,13 +16,13 @@ function Cadastrar(){
 function VerificarCampoVazio($nome, $codigo){
     if ( empty( $nome ) || empty( $codigo ) ) {
         ?>
-            <p id = 'erroUser'>Introduza correctamente os seus dados, não deve conter campo vazio</p>
+            <p class="mt-4" id = 'erroUser'>Introduza correctamente os seus dados, não deve conter campo vazio</p>
         <?php
     } else {
         $resultado = VerificarSeExiste($nome);
-        if ( $resultado[ 'nome' ] == $nome ) {
+        if ( !empty($resultado[ 'nome' ]) && $resultado[ 'nome' ] == $nome ) {
             ?>
-                <p id = 'erroUser'>Já existe um usuário com este nome</p>
+                <p class="mt-4" id = 'erroUser'>Já existe um usuário com este nome</p>
             <?php
         } else {
             $usuarioDao = new UsuarioDao();

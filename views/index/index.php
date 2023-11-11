@@ -4,14 +4,13 @@ include '../inc/header.php';
 ?>
 
 
-
 <title>Formulário de Login</title>
 
 <div class='container '>
     <main class='d-flex justify-content-center align-items-center'>
         <form method='POST' class="w-100">
             <center>
-                <div class=''>
+                <div class=' mb-4'>
                     <div class="col pb-2">
                     <?php include '../../dao/_autenticacaoUsuario.php'; ?>
                     </div>

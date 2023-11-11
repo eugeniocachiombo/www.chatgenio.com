@@ -45,7 +45,7 @@ include '../inc/header.php';
 		</form>
 	</main>
 	<center>
-	<p style="font-size: 15px"> 
+	<p style="font-size: 15px" class="pt-3"> 
 		<span style='color: red;font-size: 15px'>Atenção:</span> 
 		Por questões de segurança é bom anotar o
 		seu Nome e o Código 
