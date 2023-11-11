@@ -4,6 +4,7 @@ include 'usuarioDao.php';
 
 Logar();
 Cadastrar();
+VerficarSeLogado();
 
 function Logar(){
 	if ( isset( $_POST[ 'entrar' ] ) ) {
@@ -48,6 +49,16 @@ function Cadastrar(){
 		?>
 			<script type = 'text/javascript'>
 				window.location = '../cadastro/';
+			</script>
+		<?php
+	}
+}
+
+function VerficarSeLogado(){
+	if ( isset( $_SESSION[ 'id' ] ) ) {
+		?>
+			<script type = 'text/javascript'>
+				window.location = '../inicio/';
 			</script>
 		<?php
 	}
