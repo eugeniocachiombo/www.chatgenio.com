@@ -21,13 +21,13 @@ include '../inc/header.php';
                     <div class='col-8 col-lg-5 pb-3 d-block justify-content-center align-items-center'>
                         <label class="text-start w-100">Nome</label> <br>
                         <input class="form-control" id='campoNome' type='text' name='nome'
-                            placeholder='Digite o seu nome'>
+                            placeholder='Digite o seu nome' value="<?php echo isset($_POST["nome"]) ? $_POST["nome"] : ""; ?>">
                     </div>
 
                     <div class='col-8 col-lg-5 pb-3 d-block justify-content-center align-items-center'>
                         <label class="text-start w-100">Código</label><br>
                         <input class="form-control" class='senha' id='campoCodigo' type='password' name='codigo'
-                            placeholder='Digite o seu código'>
+                            placeholder='Digite o seu código' value="<?php echo isset($_POST["codigo"]) ? $_POST["codigo"] : ""; ?>">
                     </div>
 
                     <div class='col-8 col-lg-5 pt-3'>

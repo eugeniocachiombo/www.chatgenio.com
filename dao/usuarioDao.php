@@ -4,7 +4,7 @@ class UsuarioDao{
 
         function BuscarUsuario($nome,$codigo){
             $con = getConexao();
-            $sql = 'select * from usuario where nome = ? and codigo = ?';
+            $sql = 'select * from usuario where nome = ? and codigo = md5(?)';
             $stmt = $con->prepare( $sql );
             $stmt->bindValue( 1, $nome );
             $stmt->bindValue( 2, $codigo );
@@ -32,7 +32,7 @@ class UsuarioDao{
 
         function CadastrarUsuario($nome,$codigo){
             $con = GetConexao();
-            $sql = "insert into usuario (nome, codigo) values(?, ?)";
+            $sql = "insert into usuario (nome, codigo) values(?, md5(?))";
             $stmt = $con->prepare( $sql );
             $stmt->bindValue( 1, $nome );
             $stmt->bindValue( 2, $codigo );
