@@ -12,15 +12,11 @@ CREATE TABLE `mensagem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-
-
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
-  `codigo` int(11) DEFAULT NULL
+  `codigo` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 
 
 ALTER TABLE `mensagem`
