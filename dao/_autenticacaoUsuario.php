@@ -63,6 +63,4 @@ function VerficarSeLogado(){
 		<?php
 	}
 }
- 
-
 ?>

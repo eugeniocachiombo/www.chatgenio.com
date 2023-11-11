@@ -30,7 +30,16 @@ class UsuarioDao{
             return $stmt->fetch();
         }
 
-        function CadastrarUsuario($nome,$codigo){
+        function BuscarPorNome($nome){
+            $con = GetConexao();
+            $sql = 'select nome from usuario where nome = ?';
+            $stmt = $con->prepare( $sql );
+            $stmt->bindValue( 1, $nome );
+            $stmt->execute();
+            return $stmt->fetch();
+        }
+
+        function CadastrarUsuario($nome, $codigo){
             $con = GetConexao();
             $sql = "insert into usuario (nome, codigo) values(?, md5(?))";
             $stmt = $con->prepare( $sql );

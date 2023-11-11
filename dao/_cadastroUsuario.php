@@ -33,12 +33,9 @@ function VerificarCampoVazio($nome, $codigo){
 }
 
 function VerificarSeExiste($nome){
-        $con = GetConexao();
-        $sql = 'select nome from usuario where nome = ?';
-        $stmt = $con->prepare( $sql );
-        $stmt->bindValue( 1, $nome );
-        $stmt->execute();
-        return $stmt->fetch();
+    $usuarioDao = new UsuarioDao();
+    $resultado = $usuarioDao->BuscarPorNome($nome);
+    return $resultado;
 }
 
 function Logar(){
