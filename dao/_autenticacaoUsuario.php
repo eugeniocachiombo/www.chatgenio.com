@@ -17,7 +17,7 @@ function Logar(){
 }
 
 function VerificarSeExiste($nome, $codigo, $usuario_encontrado){
-	if ( !empty($resultado_encontrado[ 'nome' ]) && $usuario_encontrado[ 'nome' ] == $nome && !empty($usuario_encontrado[ 'codigo' ]) && $usuario_encontrado[ 'codigo' ] == $codigo ) {
+	if ( !empty($usuario_encontrado[ 'nome' ]) && $usuario_encontrado[ 'nome' ] == $nome && !empty($usuario_encontrado[ 'codigo' ]) && $usuario_encontrado[ 'codigo' ] == $codigo ) {
 		ValidarAutenticacao($usuario_encontrado[ 'id' ], $usuario_encontrado[ 'nome' ], $usuario_encontrado[ 'codigo' ]);
 	} else {
 		?>

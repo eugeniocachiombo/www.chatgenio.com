@@ -12,7 +12,7 @@ include '../../config/verificar_sessao.php';
 include '../../config/destruir_cookie_e_sessao.php';
 ?>
 
-<div class='container '>
+<div class='container mt-4 mb-4'>
     <main class='w-100 d-flex justify-content-center align-items-center'>
         <form method='POST' class=" w-100">
             <center>
@@ -35,11 +35,8 @@ include '../../config/destruir_cookie_e_sessao.php';
                 <div class=' w-100 col-8 col-lg-5 d-block justify-content-center align-items-center'>
                     <?php
                         if ( isset( $_POST[ 'exibir' ] ) ) {
-
-                            if ( $_POST[ 'destinatario' ] == 'Selecione um destinatario' ) {
-
+                            if ( empty($_POST[ 'destinatario' ]) ) {
                                 ?> <p id='erroUser'> Selecione um destinatário </p> <?php
-
                             } else {
                                 $_SESSION[ 'destinatario' ] = $_POST[ 'destinatario' ];
                                 include '../../dao/_paginacao.php';
@@ -51,15 +48,13 @@ include '../../config/destruir_cookie_e_sessao.php';
                             }
                         }
                         ?>
-                    
                     <div class="">
                         <label  style='font-weight: bold;'>Destinatario:</label> 
                     </div>
 
-
                     <div class='col-8 col-lg-5 pt-3 '>
                         <select class="form-select text-white"  style="background: rgba(1, 207, 207, 0.788);" name='destinatario' >
-                            <option>Selecione um destinatario</option>
+                            <option value="">Selecione um destinatario....</option>
                             <?php
                                 $usuarioDao = new UsuarioDao();
                                 $lista_usuarios = $usuarioDao->BuscarTodosExceptoLogado( $_SESSION[ 'nome' ] );
