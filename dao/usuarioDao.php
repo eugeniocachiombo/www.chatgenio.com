@@ -2,7 +2,7 @@
 
 class UsuarioDao{
 
-        function BuscarUsuario($nome,$codigo){
+        function BuscarUsuario( $nome, $codigo ){
             $con = getConexao();
             $sql = 'select * from usuario where nome = ? and codigo = md5(?)';
             $stmt = $con->prepare( $sql );
@@ -41,6 +41,8 @@ class UsuarioDao{
                 ?>
                     <p class="mt-4" id = 'sucessoUser'>Cadastrado com sucesso</p>
                 <?php
+                $_POST["nome"] = "";
+                $_POST["codigo"] = "";
             } else {
                 ?>
                     <p class="mt-4" id = 'erroUser'>Erro ao cadastrar</p>
