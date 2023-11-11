@@ -12,7 +12,7 @@ include '../../config/verificar_cookie.php';
 include '../../config/verificar_sessao.php';
 ?>
 
-<div class='container '>
+<div class='container mt-4 mb-4'>
 	<div class="pt-4">
 				<?php
 					$con = getConexao();

@@ -5,7 +5,7 @@ include '../inc/header.php';
 
 <title>Formulário de Cadastro</title>
 
-<div class='container '>
+<div class='container mt-4 mb-4'>
     <main class='d-flex justify-content-center align-items-center'>
         <form method='POST' class="w-100">
             <center>
