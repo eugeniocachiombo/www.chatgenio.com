@@ -21,7 +21,7 @@ foreach ( $resultado as $value ) {
     $cont++;
     ?>
     <hr>
-
+	
     <?php
     if ( $value[ 'texto' ] == 'Mensagem excluida' ) {
         ?>
@@ -29,7 +29,7 @@ foreach ( $resultado as $value ) {
 				<?php echo $value[ 'texto' ] . ', enviado por: '. $value[ 'Enviante' ]; ?>
 			</p>
         <?php
-    } else	if ( ucfirst( $value[ 'Enviante' ] ) == ucfirst( $_SESSION[ 'nome' ] ) ) {
+    } else	if ( ucwords( $value[ 'Enviante' ] ) == ucwords( $_SESSION[ 'nome' ] ) ) {
 			?>
 				<div class = ' w-100 d-flex justify-content-end align-items-center'>
 					<p id = 'belezaDoEnviante' style = ' '>
